@@ -2,7 +2,7 @@ require './item'
 
 class MusicAlbum
   def initialize(on_spotify)
-    super()
+    super(id)
     @on_spotify = on_spotify
   end
 
