@@ -2,8 +2,7 @@ require './item'
 
 class Author < Item
   def initialize(id, first_name, last_name)
-    super()
-    @id = id
+    super(id)
     @first_name = first_name
     @last_name = last_name
     @item = []
