@@ -1,6 +1,6 @@
 require './item'
 
-class MusicAlbum
+class MusicAlbum < Item
   def initialize(on_spotify)
     super(id)
     @on_spotify = on_spotify
