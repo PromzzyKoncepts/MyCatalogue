@@ -4,7 +4,7 @@ class Label < Item
   attr_accessor :title, :color
   attr_reader :items
 
-  def initialize(id, title, color, _items)
+  def initialize(title, color, _items)
     super(id)
     @title = title
     @color = color
