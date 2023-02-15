@@ -1,4 +1,7 @@
+require './app'
+
 class Main
+  app = App.new
   puts 'Welcome to My Catalogue  App'
   options = [
     'List all books',
@@ -14,9 +17,18 @@ class Main
     'Add a game',
     'Exit'
   ]
+
+  def choose_options(input, app)
+    case input
+    when 1
+      app.list_all_books
+    end
+  end
+
   loop do
     options.each_with_index { |option, index| puts "#{index + 1} - #{option}" }
     input = gets.chomp.to_i
+    choose_options(input, app)
     return if input == 12
   end
 end
