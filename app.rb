@@ -4,6 +4,7 @@ require_relative './author'
 require_relative './game'
 require_relative './genre'
 require_relative './music'
+require_relative './data'
 
 class App
   def initialize
@@ -32,14 +33,19 @@ class App
     publish_date = gets.chomp.to_i
 
     book = Book.new(publisher, cover_state, publish_date, author, title)
-    @books.push(book)
 
     puts 'Enter the color of the book'
     color = gets.chomp
 
     new_label = Label.new(title, color)
     new_label.add_item(book)
+
+    @books.push(book)
+    save_book(publisher, cover_state, publish_date, author, title)
+
     @labels.push(new_label)
+    save_label(title, color)
+
     puts 'Book Successfully Added!!'
   end
 
