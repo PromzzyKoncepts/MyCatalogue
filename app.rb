@@ -68,7 +68,7 @@ class App
     else
       puts 'Invalid input'
     end
-    
+
     print 'Enter Publish Year: '
     publish_date = gets.chomp
 
@@ -92,23 +92,22 @@ class App
     @genre.each { |item| puts item.name.to_s }
   end
 
-
   def add_game
     print 'Enter the name of the game: '
     name = gets.chomp
-    
+
     print 'Does the game has multiplayer [y/n] :'
     multiplayer = gets.chomp.capitalize
-    
+
     case multiplayer
     when 'Y'
       multiplayer = true
     when 'N'
       multiplayer = false
     else
-     puts 'Invalid input'
+      puts 'Invalid input'
     end
-    
+
     print 'Add the last played year :'
     last_played_at = gets.chomp
     game = Game.new(name, multiplayer, last_played_at)
