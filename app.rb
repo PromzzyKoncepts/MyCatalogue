@@ -50,7 +50,7 @@ class App
       puts "Title: #{book.title},  Author: #{book.author}, Publisher: #{book.publisher}, Date of Publication:#{book.publish_date}"
     end
   end
-  
+
   def add_musicalbum
     print 'Enter Name of music album: '
     new_music = gets.chomp
