@@ -52,4 +52,3 @@ Style/HashTransformValues:
   Enabled: false
 Metrics/CyclomaticComplexity:
   Enabled: false
-
