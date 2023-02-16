@@ -9,9 +9,7 @@ class Game < Item
   end
   attr_accessor :multiplayer, :last_played_at, :name
 
-  private
-
   def can_be_archived?
-    Item.can_be_archived? && (Time.new.year - @last_played_at) > 2
+    super() && (Time.new.year - @last_played_at) > 2
   end
 end

@@ -20,8 +20,8 @@ def choose_options(input, app)
     app.add_musicalbum
   when 9
     app.add_game
-  # when 10
-  #   app.store_data
+    # when 10
+    #   app.store_data
   end
 end
 
