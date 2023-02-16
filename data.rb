@@ -15,7 +15,7 @@ def save_book(publisher, cover_state, publish_date, author, title)
 
   return unless File.exist?(book_file)
 
-  file = File.open(book_file)
+  file = File.read(book_file)
   if file.empty?
     book = [obj]
   else
@@ -23,10 +23,10 @@ def save_book(publisher, cover_state, publish_date, author, title)
     book << obj
   end
 
-  file.close
+  # file.close
 
   add_to_file = File.open(book_file, 'w')
-  add_to_file.write(JSON.generate(book))
+  add_to_file.write(JSON.pretty_generate(book))
   add_to_file.close
 end
 
@@ -41,7 +41,7 @@ def save_label(title, color)
 
   return unless File.exist?(label_file)
 
-  file = File.open(label_file)
+  file = File.read(label_file)
   if file.empty?
     book = [obj]
   else
@@ -49,9 +49,9 @@ def save_label(title, color)
     book << obj
   end
 
-  file.close
+  # file.close
 
   add_to_file = File.open(label_file, 'w')
-  add_to_file.write(JSON.generate(book))
+  add_to_file.write(JSON.pretty_generate(book))
   add_to_file.close
 end
