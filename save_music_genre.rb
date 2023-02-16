@@ -9,7 +9,6 @@ end
 def fetch_music_albums
   return if File.zero?('./JSON/music_albums.json') || File.exist?('./JSON/music_albums.json') == false
 
-
   JSON.parse(File.read('./JSON/music_albums.json'))
     .map do |album|
     {
@@ -27,7 +26,6 @@ end
 # Get genre
 def fetch_genres
   return if File.zero?('./JSON/genre.json') || File.exist?('./JSON/genre.json') == false
-
 
   JSON.parse(File.read('./JSON/genre.json'))
     .map do |genre|
