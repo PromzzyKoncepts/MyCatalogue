@@ -104,7 +104,7 @@ class App
     print 'Enter Publish Year: '
     publish_date = gets.chomp
 
-    print 'Enter Genre of music: '
+    print 'Enter Genre of music album: '
     music_genre = gets.chomp
 
     musicalbum = {
