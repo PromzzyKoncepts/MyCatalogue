@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Journey",
+    "publish_date": "2000",
+    "on_spotify": true,
+    "genre": "Country"
+  },
+  {
+    "name": "Happy Songs",
+    "publish_date": "2006",
+    "on_spotify": false,
+    "genre": "Hip Hip"
+  }
+]
