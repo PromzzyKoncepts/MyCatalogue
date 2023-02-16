@@ -5,12 +5,18 @@ require_relative './game'
 require_relative './genre'
 require_relative './music'
 require_relative './game_author_preserve'
+require_relative './save_music_genre'
+require_relative './data'
+require 'json'
+
 class App
   def initialize
+    @get_albums = fetch_music_albums
+    @get_genre = fetch_genres
     @books = []
     @labels = []
-    @music_albums = []
-    @genre = []
+    @music_albums = @get_albums || []
+    @genres = @get_genre || []
     @games = []
     @authors = []
   end
@@ -21,7 +27,6 @@ class App
 
     puts 'Enter the name of the Author'
     author = gets.chomp
-
     puts 'Enter the name of the Publisher'
     publisher = gets.chomp
 
@@ -32,24 +37,49 @@ class App
     publish_date = gets.chomp.to_i
 
     book = Book.new(publisher, cover_state, publish_date, author, title)
-    @books.push(book)
 
     puts 'Enter the color of the book'
     color = gets.chomp
 
     new_label = Label.new(title, color)
     new_label.add_item(book)
+
+    @books.push(book)
+    save_book(publisher, cover_state, publish_date, author, title)
+
     @labels.push(new_label)
+    save_label(title, color)
+
     puts 'Book Successfully Added!!'
   end
 
   def list_labels
-    @labels.each { |label| puts "Title: #{label.title}, Color: #{label.color}" }
+    label_file = './JSON/labels.json'
+
+    file = File.read(label_file)
+    puts 'No books Added, Kindly Add a book' if file.empty?
+
+    puts 'List of all available books:'
+    puts ''
+
+    labels = JSON.parse(File.read(label_file))
+    labels.each_with_index do |label, i|
+      puts "#{i + 1} Title: #{label['title']}, Color: #{label['color']}"
+    end
   end
 
   def list_all_books
-    @books.each do |book|
-      puts "Title: #{book.title},  Author: #{book.author}, Publisher: #{book.publisher}, Date of Publication:#{book.publish_date}"
+    book_file = './JSON/books.json'
+
+    file = File.read(book_file)
+    puts 'No books Added, Kindly Add a book' if file.empty?
+
+    puts 'List of all available books:'
+    puts ''
+
+    booklist = JSON.parse(File.read(book_file))
+    booklist.each_with_index do |book, i|
+      puts "#{i + 1} Author: #{book['author']}, Publisher: #{book['publisher']}, Year of Publication: #{book['publish_date']}"
     end
   end
 
@@ -75,21 +105,25 @@ class App
     print 'Enter Genre of music: '
     music_genre = gets.chomp
 
-    musicalbum = MusicAlbum.new(new_music, publish_date, on_spotify)
-    @music_albums << musicalbum
-    puts 'Music Album succesfully added'
+    musicalbum = {
+      'album' => MusicAlbum.new(new_music, publish_date, on_spotify),
+      'genre' => music_genre
+    }
 
-    new_genre = Genre.new(music_genre)
-    new_genre.add_item(musicalbum)
-    @genre << new_genre
+    @music_albums << musicalbum
+
+    new_genre = Genre.new(musicalbum['genre'])
+    new_genre.add_item(musicalbum['album'])
+    @genres << new_genre
+    puts 'Music Album succesfully added'
   end
 
   def list_musicalbums
-    @music_albums.each { |album| puts "Name: #{album.name}, Publish date: #{album.publish_date}" }
+    @music_albums.each { |album| puts "Name: #{album['album'].name}, Publish date: #{album['album'].publish_date}, On spotity: #{album['album'].on_spotify}" }
   end
 
   def list_genre
-    @genre.each { |item| puts item.name.to_s }
+    @genres.each { |item| puts item.name.to_s }
   end
 
   def add_game
@@ -160,5 +194,10 @@ class App
     end
 
     puts "\n"
+  end
+
+  def store_data
+    store_albums(@music_albums)
+    store_genre(@genres)
   end
 end
