@@ -4,13 +4,16 @@ require_relative './author'
 require_relative './game'
 require_relative './genre'
 require_relative './music'
+require_relative './save_music_genre'
 
 class App
   def initialize
+    @get_albums = fetch_music_albums
+    @get_genre = fetch_genres
     @books = []
     @labels = []
-    @music_albums = []
-    @genre = []
+    @music_albums = @get_albums || []
+    @genres = @get_genre || []
     @games = []
     @authors = []
   end
@@ -21,7 +24,6 @@ class App
 
     puts 'Enter the name of the Author'
     author = gets.chomp
-
     puts 'Enter the name of the Publisher'
     publisher = gets.chomp
 
@@ -75,21 +77,25 @@ class App
     print 'Enter Genre of music: '
     music_genre = gets.chomp
 
-    musicalbum = MusicAlbum.new(new_music, publish_date, on_spotify)
-    @music_albums << musicalbum
-    puts 'Music Album succesfully added'
+    musicalbum = {
+      'album' => MusicAlbum.new(new_music, publish_date, on_spotify),
+      'genre' => music_genre
+    }
 
-    new_genre = Genre.new(music_genre)
-    new_genre.add_item(musicalbum)
-    @genre << new_genre
+    @music_albums << musicalbum
+
+    new_genre = Genre.new(musicalbum['genre'])
+    new_genre.add_item(musicalbum['album'])
+    @genres << new_genre
+    puts 'Music Album succesfully added'
   end
 
   def list_musicalbums
-    @music_albums.each { |album| puts "Name: #{album.name}, Publish date: #{album.publish_date}" }
+    @music_albums.each { |album| puts "Name: #{album['album'].name}, Publish date: #{album['album'].publish_date}, On spotity: #{album['album'].on_spotify}" }
   end
 
   def list_genre
-    @genre.each { |item| puts item.name.to_s }
+    @genres.each { |item| puts item.name.to_s }
   end
 
   def add_game
@@ -132,5 +138,12 @@ class App
 
   def list_authors
     @authors.each { |author| puts " Name: #{author.first_name} #{author.last_name} " }
+  end
+
+  def store_data
+    store_albums(@music_albums)
+    store_genre(@genres)
+    # fetch_music_albums
+    # fetch_genre
   end
 end
