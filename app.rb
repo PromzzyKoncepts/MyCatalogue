@@ -4,6 +4,8 @@ require_relative './author'
 require_relative './game'
 require_relative './genre'
 require_relative './music'
+require_relative './data'
+require 'json'
 
 class App
   def initialize
@@ -32,24 +34,49 @@ class App
     publish_date = gets.chomp.to_i
 
     book = Book.new(publisher, cover_state, publish_date, author, title)
-    @books.push(book)
 
     puts 'Enter the color of the book'
     color = gets.chomp
 
     new_label = Label.new(title, color)
     new_label.add_item(book)
+
+    @books.push(book)
+    save_book(publisher, cover_state, publish_date, author, title)
+
     @labels.push(new_label)
+    save_label(title, color)
+
     puts 'Book Successfully Added!!'
   end
 
   def list_labels
-    @labels.each { |label| puts "Title: #{label.title}, Color: #{label.color}" }
+    label_file = './JSON/labels.json'
+
+    file = File.read(label_file)
+    puts 'No books Added, Kindly Add a book' if file.empty?
+
+    puts 'List of all available books:'
+    puts ''
+
+    labels = JSON.parse(File.read(label_file))
+    labels.each_with_index do |label, i|
+      puts "#{i + 1} Title: #{label['title']}, Color: #{label['color']}"
+    end
   end
 
   def list_all_books
-    @books.each do |book|
-      puts "Title: #{book.title},  Author: #{book.author}, Publisher: #{book.publisher}, Date of Publication:#{book.publish_date}"
+    book_file = './JSON/books.json'
+
+    file = File.read(book_file)
+    puts 'No books Added, Kindly Add a book' if file.empty?
+
+    puts 'List of all available books:'
+    puts ''
+
+    booklist = JSON.parse(File.read(book_file))
+    booklist.each_with_index do |book, i|
+      puts "#{i + 1} Author: #{book['author']}, Publisher: #{book['publisher']}, Year of Publication: #{book['publish_date']}"
     end
   end
 
