@@ -2,7 +2,7 @@ require_relative './book'
 require_relative './app'
 require 'json'
 
-
+# This part is to save book in json files
 def save_book(publisher, cover_state, publish_date, author, title)
   book_file = './JSON/books.json'
 
@@ -31,9 +31,10 @@ def save_book(publisher, cover_state, publish_date, author, title)
   add_to_file.close
 end
 
+# This part is to save label in json files
 def save_label(title, color)
   label_file = './JSON/labels.json'
-  
+
   obj = { 
     title: title,
     color: color
