@@ -1,4 +1,4 @@
-require './item'
+require_relative './item'
 
 class Author
   def initialize(first_name, last_name)

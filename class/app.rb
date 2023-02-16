@@ -4,21 +4,23 @@ require_relative './author'
 require_relative './game'
 require_relative './genre'
 require_relative './music'
-require_relative './game_author_preserve'
-require_relative './save_music_genre'
-require_relative './data'
+require_relative '../preserve/game_author_preserve'
+require_relative '../preserve/save_music_genre'
+require_relative '../preserve/data'
 require 'json'
 
 class App
   def initialize
     @get_albums = fetch_music_albums
     @get_genre = fetch_genres
-    @books = []
-    @labels = []
+    @get_games = fetch_games
+    @get_authors = fetch_authors
     @music_albums = @get_albums || []
     @genres = @get_genre || []
-    @games = []
-    @authors = []
+    @games = @get_games || []
+    @authors = @get_authors || []
+    @books = []
+    @labels = []
   end
 
   def add_book
@@ -115,6 +117,10 @@ class App
     new_genre = Genre.new(musicalbum['genre'])
     new_genre.add_item(musicalbum['album'])
     @genres << new_genre
+
+    store_albums(@music_albums)
+    store_genre(@genres)
+
     puts 'Music Album succesfully added'
   end
 
@@ -169,7 +175,7 @@ class App
   end
 
   def list_games
-    game_file = './JSON/game.json'
+    game_file = './JSON/games.json'
 
     file = File.read(game_file)
     puts 'No books Added, Kindly Add a book' if file.empty?
@@ -183,7 +189,7 @@ class App
   end
 
   def list_authors
-    game_file = './JSON/author.json'
+    game_file = './JSON/authors.json'
 
     file = File.read(game_file)
     puts 'No author Added, Kindly Add a author' if file.empty?
@@ -196,8 +202,4 @@ class App
     puts "\n"
   end
 
-  def store_data
-    store_albums(@music_albums)
-    store_genre(@genres)
-  end
 end

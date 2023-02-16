@@ -1,4 +1,4 @@
-require './item'
+require_relative './item'
 
 class MusicAlbum < Item
   attr_accessor :name, :publish_date, :on_spotify, :genre
