@@ -4,7 +4,7 @@ require_relative './author'
 require_relative './game'
 require_relative './genre'
 require_relative './music'
-
+require_relative './game_author_preserve'
 class App
   def initialize
     @books = []
@@ -112,6 +112,14 @@ class App
     last_played_at = gets.chomp
     game = Game.new(name, multiplayer, last_played_at)
     @games.push(game)
+    puts 'Succesfully added the game'
+    puts "\n"
+
+    # save to json file
+
+    save_game(@games)
+
+    puts 'Add the author information please'
 
     print 'Add the first name: '
     first_name = gets.chomp
@@ -119,18 +127,38 @@ class App
     last_name = gets.chomp
     author = Author.new(first_name, last_name)
     @authors.push(author)
-
     author.add_item(game)
-    puts 'Succesfully added the game'
+    # save to json file
+    save_author(@authors)
+
+    puts "\n"
   end
 
   def list_games
-    @games.each do |game|
-      puts " Name: #{game.name}, Multiplayer: #{game.multiplayer}, Last_played_at: #{game.last_played_at} "
+    game_file = './JSON/game.json'
+
+    file = File.read(game_file)
+    puts 'No books Added, Kindly Add a book' if file.empty?
+    # read from the json to display games
+    games = JSON.parse(File.read(game_file))
+    games.each_with_index do |game, index|
+      puts " #{index + 1} Name: #{game['name']}, Multiplayer: #{game['multiplayer']}, Last_played_at: #{game['last_played_at']} "
     end
+
+    puts "\n"
   end
 
   def list_authors
-    @authors.each { |author| puts " Name: #{author.first_name} #{author.last_name} " }
+    game_file = './JSON/author.json'
+
+    file = File.read(game_file)
+    puts 'No author Added, Kindly Add a author' if file.empty?
+    # read from the json to display authors
+    authors = JSON.parse(File.read(game_file))
+    authors.each_with_index do |author, index|
+      puts " #{index + 1} Author: #{author['first_name']} #{author['last_name']} "
+    end
+
+    puts "\n"
   end
 end
