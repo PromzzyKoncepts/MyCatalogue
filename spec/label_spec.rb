@@ -18,6 +18,5 @@ describe Book do
     it 'checks whether label inputs are added to book' do
       expect(book.label.color).to eql 'red'
     end
-    
   end
 end

@@ -18,6 +18,5 @@ describe Book do
     it 'checks whether a book can be archived?' do
       expect(book.can_be_archived?).to eql false
     end
-    
   end
 end

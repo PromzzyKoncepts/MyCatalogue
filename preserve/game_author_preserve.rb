@@ -16,7 +16,6 @@ def fetch_games
   end
 end
 
-
 # Save Authors
 def save_author(authors)
   File.write('./JSON/authors.json', JSON.pretty_generate(authors.map { |author| { first_name: author.first_name, last_name: author.last_name } }))
