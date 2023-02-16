@@ -20,5 +20,4 @@ describe Game do
   it 'should test for can_be_archived' do
     expect(@game.can_be_archived?).to be_truthy
   end
-  
 end
