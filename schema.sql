@@ -1,4 +1,4 @@
-CREATE TABLE MusicAlbum {
+CREATE TABLE music_album {
     id bigint generated always as identity primary key,    
     name VARCHAR(100) NOT NULL,
     on_spotify BOOLEAN NOT NULL,
