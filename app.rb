@@ -53,12 +53,10 @@ class App
   def list_labels
     label_file = './JSON/labels.json'
 
-    file = File.open(label_file)
-    if file.size.zero?
-      puts "No Labels available, Kindly Add a book"
-    end
+    file = File.read(label_file)
+    puts 'No books Added, Kindly Add a book' if file.empty?
 
-    puts "List of all available books:"
+    puts 'List of all available books:'
     puts ''
 
     labels = JSON.parse(File.read(label_file))
@@ -70,12 +68,10 @@ class App
   def list_all_books
     book_file = './JSON/books.json'
 
-    file = File.open(book_file)
-    if file.size.zero?
-      puts "No books Added, Kindly Add a book"
-    end
+    file = File.read(book_file)
+    puts 'No books Added, Kindly Add a book' if file.empty?
 
-    puts "List of all available books:"
+    puts 'List of all available books:'
     puts ''
 
     booklist = JSON.parse(File.read(book_file))
