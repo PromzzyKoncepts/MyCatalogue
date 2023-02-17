@@ -1,4 +1,16 @@
 
+CREATE TABLE game_table (
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
+  name TEXT NOT NULL,
+  multiplayer BOOLEAN NOT NULL, 
+  last_played_at DATE);
+  
+CREATE TABLE authors( 
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
+  first_name TEXT NOT NULL,
+  Last_name TEXT NOT NULL);
+
+
 CREATE TABLE music_album {
     id bigint generated always as identity primary key,    
     name VARCHAR(100) NOT NULL,
