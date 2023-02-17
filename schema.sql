@@ -1,3 +1,16 @@
+
+CREATE TABLE music_album {
+    id bigint generated always as identity primary key,    
+    name VARCHAR(100) NOT NULL,
+    on_spotify BOOLEAN NOT NULL,
+    publish_date INT NOT NULL
+}
+
+CREATE TABLE genre {
+    id INT NOT NULL PRIMARY KEY,    
+    name VARCHAR(100) NOT NULL,
+}
+
 CREATE TABLE item(
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   genre_id INT REFERENCES genre(id) ON DELETE CASCADE,
@@ -26,3 +39,4 @@ CREATE TABLE label(
   title TEXT(70),
   color VARCHAR
 )
+
