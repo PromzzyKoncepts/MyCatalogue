@@ -195,7 +195,7 @@ Example:
 👤 **Suzana Marsela**
 
 - GitHub: [@Suzi216](https://github.com/Suzi216)
-- LinkedIn: [promiseokechukwu](https://www.linkedin.com/in/suzana-marsela/)
+- LinkedIn: [suzanamarsela](https://www.linkedin.com/in/suzana-marsela/)
 
 
 👤 **PROMISE OKECHUKWU**
