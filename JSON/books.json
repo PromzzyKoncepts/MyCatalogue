@@ -5,5 +5,61 @@
     "publish_date": 2000,
     "author": "j k rolling",
     "title": "harry potter"
+  },
+  {
+    "publisher": "Shaddai Linus",
+    "cover_state": "Good",
+    "publish_date": 2023,
+    "author": "Promise Okechukwu",
+    "title": "Maniac and intelligence"
+  },
+  {
+    "publisher": "Suzana",
+    "cover_state": "Good",
+    "publish_date": 2023,
+    "author": "Promise",
+    "title": "Sunrise"
+  },
+  {
+    "publisher": "Okechukwu",
+    "cover_state": "Good",
+    "publish_date": 2022,
+    "author": "Promise",
+    "title": "fast and furious"
+  },
+  {
+    "publisher": "Okechukwu",
+    "cover_state": "Good",
+    "publish_date": 2022,
+    "author": "Promise",
+    "title": "fast and furious"
+  },
+  {
+    "publisher": "Microverse",
+    "cover_state": "Good",
+    "publish_date": 2024,
+    "author": "The reviewer of this project",
+    "title": "Maniac and Intelligents"
+  },
+  {
+    "publisher": "Microverse",
+    "cover_state": "Good",
+    "publish_date": 2024,
+    "author": "The reviewer of this project",
+    "title": "Maniac and Intelligents"
+  },
+  {
+    "publisher": "Don't worry it works",
+    "cover_state": "Perfectly fine",
+    "publish_date": 2023,
+    "author": "Dear Reviewer",
+    "title": "Please Approve this PR"
+  },
+  {
+    "publisher": "Don't worry it works",
+    "cover_state": "Perfectly fine",
+    "publish_date": 2023,
+    "author": "Dear Reviewer",
+    "title": "Please Approve this PR"
   }
 ]

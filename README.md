@@ -108,11 +108,10 @@ After you're finished please remove all the comments and instructions!
 
 <!-- LIVE DEMO -->
 
-## 🚀 Live Demo <a name="live-demo"></a>
+## 🚀 Video Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
 
-- [Live Demo Link](https://yourdeployedapplicationlink.com)
+- [Live Demo](https://drive.google.com/file/d/1thwoA5YTROt6Kg1H2IVnrjlt-rxo1cIm/view?usp=sharing)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -150,7 +149,7 @@ Install this project with:
 - #### Note: make sure that you have bundle installed on your machine
 
 ```sh
-  cd my-project
+  cd MYCATALOGUE
   bundle install
 ```
 ### Usage
@@ -259,8 +258,7 @@ I would like to thank Microverse for inspiring this project idea.
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./MIT) licensed.
+This project is [MIT](./MIT.md) licensed.
 
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

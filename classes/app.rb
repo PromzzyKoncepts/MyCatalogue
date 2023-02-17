@@ -40,19 +40,23 @@ class App
 
     book = Book.new(publisher, cover_state, publish_date, author, title)
 
+    @books.push(book)
+    save_book(publisher, cover_state, publish_date, author, title)
+
+    puts ' '
+    puts 'Great Job!, Now Enter some label for this book'
+    puts ' '
+
     puts 'Enter the color of the book'
     color = gets.chomp
 
     new_label = Label.new(title, color)
     new_label.add_item(book)
 
-    @books.push(book)
-    save_book(publisher, cover_state, publish_date, author, title)
-
     @labels.push(new_label)
     save_label(title, color)
 
-    puts 'Book Successfully Added!!'
+    puts 'Book and Label Successfully Added!!'
   end
 
   def list_labels
