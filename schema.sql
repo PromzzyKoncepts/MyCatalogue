@@ -1,3 +1,4 @@
+
 CREATE TABLE music_album {
     id bigint generated always as identity primary key,    
     name VARCHAR(100) NOT NULL,
@@ -9,3 +10,33 @@ CREATE TABLE genre {
     id INT NOT NULL PRIMARY KEY,    
     name VARCHAR(100) NOT NULL,
 }
+
+CREATE TABLE item(
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  genre_id INT REFERENCES genre(id) ON DELETE CASCADE,
+  author_id INT REFERENCES author(id) ON DELETE CASCADE,
+  label_id INT REFERENCES label(id) ON DELETE CASCADE,
+  publish_date DATE NOT NULL,
+  archived BOOLEAN NOT NULL
+);
+
+DROP TABLE IF EXISTS book;
+
+CREATE TABLE book(
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  publisher TEXT NOT NULL,
+  cover_state VARCHAR(20) NOT NULL,
+  publish_date INT NOT NULL,
+  author VARCHAR(70) NOT NULL,
+  title VARCHAR(100) NOT NULL,
+  archived? BOOLEAN NOT NULL
+);
+
+DROP TABLE IF EXISTS label;
+
+CREATE TABLE label(
+  id INT REFERENCES book(id),
+  title TEXT(70),
+  color VARCHAR
+)
+
