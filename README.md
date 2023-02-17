@@ -111,7 +111,7 @@ After you're finished please remove all the comments and instructions!
 ## 🚀 Video Demo <a name="live-demo"></a>
 
 
-- [Live Demo](https://drive.google.com/file/d/1thwoA5YTROt6Kg1H2IVnrjlt-rxo1cIm/view?usp=sharing)
+- [Video Demo](https://drive.google.com/file/d/1thwoA5YTROt6Kg1H2IVnrjlt-rxo1cIm/view?usp=sharing)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -215,8 +215,6 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
-
 - [ ] **We will add a user interface**
 - [ ] **We will deploy our application to a server**
 
@@ -236,17 +234,14 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
 
-If you like this project...
+If you like this project please drop a star :star
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-> Give credit to everyone who inspired your codebase.
 
 I would like to thank Microverse for inspiring this project idea.
 
