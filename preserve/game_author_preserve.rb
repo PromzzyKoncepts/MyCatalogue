@@ -1,4 +1,4 @@
-require_relative '../class/app'
+require_relative '../classes/app'
 require 'json'
 
 # Save Games

@@ -1,5 +1,5 @@
-require_relative '../class/book'
-require_relative '../class/app'
+require_relative '../classes/book'
+require_relative '../classes/app'
 
 # This part is to save book in json files
 def save_book(publisher, cover_state, publish_date, author, title)

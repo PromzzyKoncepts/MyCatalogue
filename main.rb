@@ -1,4 +1,4 @@
-require './class/app'
+require './classes/app'
 
 def choose_options(input, app)
   case input
